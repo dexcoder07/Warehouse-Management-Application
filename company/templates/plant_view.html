@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Plant Details
+{% endblock %}
+
+
+{% block content %}
+<!--Plant Details -->
+<h1 style="text-align: center">Plant Details</h1><br><br>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Capacity of the Plant</th>
+      <th scope="col">Number of Vents for cooling and heating</th>
+      <th scope="col">Number of Sensors</th>
+      <th scope="col">Power Consumption</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for plt in plant %}
+    <tr>
+      <th scope="row">{{ plt.capacity }} MT</th>
+      <td>{{ plt.vents }}</td>
+      <td>{{ plt.number_of_sensors }}</td>
+      <td>{{ plt.power_consumption }} KW</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+    <!-- Geographical details of the plant-->
+    <h1 style="text-align: center">Geographical Details</h1><br><br>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Water Sources available</th>
+      <th scope="col">Nearby Mountains</th>
+      <th scope="col">Distance from Domestic area</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for plt in plant %}
+    <tr>
+      <th scope="row">{{ plt.water_sources }} KM</th>
+      <td>{{ plt.nearby_mountains }} KM</td>
+      <td>{{ plt.distance_from_domestic_area }} KM</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+    <h1 style="text-align: center">Material Details</h1><br><br>
+    <center>
+    <a href="{{ url_for('chlorine') }}"><button type="button" class="btn btn-primary btn-lg " style="margin-right: 35px">Chlorine</button></a>
+    <a href="{{ url_for('hydrogen') }}"><button type="button" class="btn btn-primary btn-lg" style="margin-right: 35px">Hydrogen</button></a>
+    <a href="{{ url_for('oxygen') }}"><button type="button" class="btn btn-primary btn-lg">Oxygen</button></a>
+    <!--<br><br>
+        <a href="{{ url_for('admin_view') }}"><button type="button" class="btn btn-primary btn-lg" style="margin-bottom: 30px">&larr; Back</button></a>
+    </center>-->
+{% endblock %}

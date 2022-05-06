@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Plant Details
+{% endblock %}
+
+
+{% block content %}
+    <!--background Image-->
+    <div class="bg-image" style="
+      background-image: url({{ url_for('static', filename = 'chlorine2.png') }});
+      height: 90vh;
+    ">
+<!--Plant Details -->
+<h1 style="text-align: center">HYDROGEN</h1><br><br>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Quantity</th>
+      <th scope="col">Volume Input</th>
+      <th scope="col">Volume Output</th>
+      <th scope="col">Sensor Status</th>
+      <th scope="col">Spread Medium</th>
+      <th scope="col">Degree of Damage</th>
+      <th scope="col">Material of Container</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for hyd in hydrogen %}
+    <tr>
+      <th scope="row">{{ hyd.quantity }} MT</th>
+      <td>{{ hyd.input }} MT</td>
+      <td>{{ hyd.output }} MT</td>
+      <td>{{ hyd.sensor_status }}</td>
+      <td>{{ hyd.spread_medium }}</td>
+      <td>{{ hyd.degree_of_damage }}</td>
+      <td>{{ hyd.material_of_container }}</td>
+      <td>{{ hyd.date }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+    <h1 style="text-align: center">Material Details</h1><br><br>
+    <center>
+    <a href="{{ url_for('chlorine') }}"><button type="button" class="btn btn-primary btn-lg " style="margin-right: 35px">Chlorine</button></a>
+    <a href="{{ url_for('hydrogen') }}"><button type="button" class="btn btn-primary btn-lg" style="margin-right: 35px">Hydrogen</button></a>
+    <a href="{{ url_for('oxygen') }}"><button type="button" class="btn btn-primary btn-lg">Oxygen</button></a>
+    <!--<br><br>
+        <a href="{{ url_for('admin_view') }}"><button type="button" class="btn btn-primary btn-lg">Back</button></a>
+    </center>-->
+{% endblock %}

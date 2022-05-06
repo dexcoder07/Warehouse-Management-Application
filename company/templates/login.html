@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Login Page
+{% endblock %}
+
+{% block content %}
+    <div class="bg-image" style="
+      background-image: url({{ url_for('static', filename = 'chemical.jpg') }});
+      height: 90vh;
+    ">
+<body class="text-center">
+    <div class="container"><div class="row align-items-center justify-content-center">
+    <div class="col-md-5">
+        <form method="POST" class="form-signin" style="color:white">
+            {{ form.hidden_tag() }}
+            <br>
+            <br>
+            <img class="mb-4" src="{{url_for('static',filename = 'badge.png')}}" alt="">
+            <br>
+            <br>
+            <h1 class="h3 mb-3 font-weight-bold">
+                Login
+            </h1>
+            <br>
+            <!--{{ form.emp_id.label() }}-->
+            {{ form.emp_id(class="form-control", placeholder="Employee ID") }}
+            <br>
+            <!--{{ form.password.label() }}-->
+            {{ form.password(class="form-control", placeholder="Password") }}
+            <br>
+            <!--{{ form.designation.label() }}-->
+            {{ form.designation(class="form-control", placeholder="Designation") }}
+
+            <br>
+
+            {{ form.location(class="form-control", placeholder="Location") }}
+
+            <br>
+
+
+            <div class="checkbox mb-3">
+               <h6>Don't have an account?</h6>
+               <a class="btn btn-sm btn-secondary" href="{{ url_for('register') }}"><b>Register</b></a>
+            </div>
+
+            {{ form.submit(class="btn btn-primary btn-lg active") }}
+
+        </form>
+    </div>
+    </div>
+    </div>
+</body>
+{% endblock %}

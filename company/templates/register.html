@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Register Page
+{% endblock %}
+
+{% block content %}
+    <div class="bg-image" style="
+      background-image: url({{ url_for('static', filename = 'chemical.jpg') }});
+      height: 120vh;
+    ">
+<body class = "text-center">
+<div class = "container">
+    <div class="row align-items-center justify-content-center">
+    <div class="col-md-5">
+    <form method="POST" class = "form-register" style = "color:white">
+        {{form.hidden_tag()}}
+            <img class="mb-4" src="{{url_for('static',filename = 'badge.png')}}" alt="">
+            <h1 class="h3 mb-3 font-weight-bold">
+                Create your Account
+            </h1>
+        <br>
+
+        {{form.emp_id(class="form-control", placeholder="Employee ID", size="10")}}
+
+        <br>
+
+        <!-- {{form.password.label()}} -->
+        {{form.password(class = "form-control", placeholder="Password")}}
+
+        <br>
+
+        <!-- {{form.confirm_password.label()}} -->
+        {{form.confirm_password(class = "form-control", placeholder="Confirm Password")}}
+
+        <br>
+
+        <!-- {{form.name.label()}} -->
+        {{form.name(class="form-control", placeholder="Employee Name")}}
+
+        <br>
+
+        <!--{{form.email_address.label()}} -->
+        {{form.email_address(class = "form-control", placeholder="Email Address")}}
+
+        <br>
+
+        <!-- {{form.address.label()}} -->
+        {{form.address(class = "form-control", placeholder="Address")}}
+
+        <br>
+
+        {{form.location(class = "form-control", placeholder=" Office Location")}}
+
+        <br>
+
+        {{form.ph_no(class = "form-control", placeholder="Phone number")}}
+
+        <br>
+        {{form.designation(class = "form-control", placeholder="Designation")}}
+
+        <br>
+
+        <div class="checkbox mb-3">
+            <h6>Already have an account?</h6>
+            <a class="btn btn-sm btn-secondary" href="{{ url_for('login') }}"><b>Sign in</b></b></a>
+        </div>
+        {{ form.submit(class="btn btn-primary btn-lg active") }}
+    </form>
+    </div>
+    </div>
+</div>
+</body>
+{% endblock %}

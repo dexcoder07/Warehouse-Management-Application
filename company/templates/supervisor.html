@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{%  block title %}
+Supervisor
+{% endblock %}
+{% block content %}
+<div class="bg-image" style="
+      background-image: url({{ url_for('static', filename = 'chemical.jpg') }});
+      height: 90vh;
+    ">
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <h1 class="text-white mb-0 " style="font-family: system-ui;">Welcome to Accent Industries</h1>
+    </div>
+  </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<center>
+    <a href="{{ url_for('plant_view') }}"><button type="button" class="btn btn-primary btn-lg" style="margin-right: 35px">View Plant Details</button></a>
+    <a href="https://www.google.com" target="_blank"><button type="button" class="btn btn-primary btn-lg">Update Plant Details</button></a>
+    </center>
+</div>
+
+{% endblock %}

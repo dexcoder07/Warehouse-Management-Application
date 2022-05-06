@@ -1,1 +1,1 @@
-This is a website of accentn industries.
+It is a chemical plant prototype website
